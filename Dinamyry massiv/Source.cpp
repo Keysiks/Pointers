@@ -51,6 +51,8 @@ void main() {
 	int index_erase; cout << "Enter index to erase: "; cin >> index_erase;
 	arr = erase(arr, size, index_erase);
 	print_array(arr, size);
+
+	delete[] arr;
 }
 
 void print_array(int arr[], int n) {
