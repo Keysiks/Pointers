@@ -258,6 +258,7 @@ int** pop_row_back(int** arr, int& rows, int& cols) {
 	int** buffer = new int* [rows - 1];
 	for (int i = 0; i < rows - 1; i++)
 		buffer[i] = arr[i];
+	delete[] arr[rows - 1];
 	rows--;
 	delete[] arr;
 	return buffer;
@@ -267,6 +268,7 @@ int** pop_row_front(int** arr, int& rows, int& cols) {
 	int** buffer = new int* [rows - 1];
 	for (int i = 1; i < rows; i++)
 		buffer[i - 1] = arr[i];
+	delete[] arr[0];
 	rows--;
 	delete[] arr;
 	return buffer;
@@ -276,6 +278,7 @@ int** erase_row(int** arr, int& rows, int& cols, int index) {
 	int** buffer = new int* [rows - 1];
 	for (int i = 0; i < rows; i++)
 		if (i < index) buffer[i] = arr[i]; else buffer[i] = arr[i + 1];
+	delete[] arr[index];
 	delete[] arr;
 	return buffer;
 }
